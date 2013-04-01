@@ -27,8 +27,23 @@
     if (self) {
         self.title = NSLocalizedString(@"Account Setting", @"Second");
         self.tabBarItem.image = [UIImage imageNamed:@"second"];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fbUserInfoUpdated) name:MattFbUserManagerGotUserInfoNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fbUserInfoUpdated) name:MattFbUserManagerLoggedOutUserNotification object:nil];
     }
     return self;
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
+}
+
+- (void)fbUserInfoUpdated
+{
+    [_userTableView reloadData];
+    [self _updateBarButtonTitle];
 }
 							
 - (void)viewDidLoad
@@ -108,7 +123,22 @@
         [cell.contentView addSubview:[[[NSBundle mainBundle] loadNibNamed:@"UserTableCell" owner:nil options:nil] lastObject]];
     }
     
+    // TODO: not sure why sometimes tableView:numberOfRowsInSection: and tableView:cellForRowAtIndexPath: are not called in the
+    // same loop and may cause crash (reproducable by login on UserDetailVC, goto SecondVC, go back, logout, goto SecondVC again,
+    // it'll crash). don't have time for it right now, so here's just a quick workaround
+    if ([_fbUserManager.userDict count]==0)
+    {
+        double delayInSeconds = 0.05;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+            [tableView reloadData];
+            [self _updateBarButtonTitle];
+        });
+        return cell;
+    }
     NSNumber *key = [[_fbUserManager.userDict allKeys] objectAtIndex:indexPath.row];
+    if (key==nil)
+        return cell;
     
     UILabel *titleLabel = (UILabel*)[cell.contentView viewWithTag:998];
     if (titleLabel) {

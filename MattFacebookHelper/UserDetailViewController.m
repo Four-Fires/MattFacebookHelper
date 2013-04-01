@@ -15,6 +15,7 @@
     NSDictionary<FBGraphUser> *_fbUser;
     MattFbUserManager *_fbUserManager;
     IBOutlet UIButton *_friendsPickerBtn;
+    IBOutlet UIButton *_loginoutBtn;
 }
 
 @end
@@ -55,6 +56,7 @@
         nameLabel.text = @"user name";
         _friendsPickerBtn.enabled = NO;
     }
+    [self _updateLoginoutBtnTitle];
 }
 
 - (void)viewDidLoad
@@ -69,6 +71,7 @@
     }
     
     [self fbUserInfoUpdated];
+    [self _updateLoginoutBtnTitle];
 }
 
 - (void)didReceiveMemoryWarning
@@ -93,6 +96,32 @@
                                                    }
                                                }
                                            }];
+}
+
+- (void)_updateLoginoutBtnTitle
+{
+    if (_fbUserManager.currentUser)
+        [_loginoutBtn setTitle:@"Logout" forState:UIControlStateNormal];
+    else
+        [_loginoutBtn setTitle:@"Login" forState:UIControlStateNormal];
+}
+
+- (IBAction)onLoginoutBtn:(id)sender
+{
+    if (_fbUserManager.currentUser)
+    {
+//        [_fbUserManager logOutCurrentUser];
+        [_fbUserManager removeUserAtIndex:[_fbUserManager loggedInUserIndex]];
+        [self _updateLoginoutBtnTitle];
+    }
+    else
+    {
+        [_fbUserManager addNewUserWithSuccessBlock:^{
+            [self _updateLoginoutBtnTitle];
+        } andFailBlock:^(NSError *error) {
+            [self _updateLoginoutBtnTitle];
+        }];
+    }
 }
 
 @end
