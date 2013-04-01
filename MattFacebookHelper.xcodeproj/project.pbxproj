@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		340C36AF1706ABB70003AFD2 /* MattFbUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 340C36AE1706ABB70003AFD2 /* MattFbUserManager.m */; };
 		340C36B517087F960003AFD2 /* UserTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340C36B417087F960003AFD2 /* UserTableCell.xib */; };
-		340C36C3170969790003AFD2 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 340C36C1170969790003AFD2 /* UserDetailViewController.m */; };
-		340C36C4170969790003AFD2 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340C36C2170969790003AFD2 /* UserDetailViewController.xib */; };
+		340C36C81709C0B00003AFD2 /* UserDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 340C36C61709C0B00003AFD2 /* UserDetailViewController.m */; };
+		340C36C91709C0B00003AFD2 /* UserDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 340C36C71709C0B00003AFD2 /* UserDetailViewController.xib */; };
 		34952CE51703E2FF0010759A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34952CE41703E2FF0010759A /* UIKit.framework */; };
 		34952CE71703E2FF0010759A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34952CE61703E2FF0010759A /* Foundation.framework */; };
 		34952CE91703E2FF0010759A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34952CE81703E2FF0010759A /* CoreGraphics.framework */; };
@@ -41,9 +41,9 @@
 		340C36AD1706ABB70003AFD2 /* MattFbUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MattFbUserManager.h; sourceTree = "<group>"; };
 		340C36AE1706ABB70003AFD2 /* MattFbUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MattFbUserManager.m; sourceTree = "<group>"; };
 		340C36B417087F960003AFD2 /* UserTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableCell.xib; sourceTree = "<group>"; };
-		340C36C0170969790003AFD2 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserDetailViewController.h; path = "../../MattFacebookHelper'/MattFacebookHelper/MattFacebookHelper/UserDetailViewController.h"; sourceTree = "<group>"; };
-		340C36C1170969790003AFD2 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UserDetailViewController.m; path = "../../MattFacebookHelper'/MattFacebookHelper/MattFacebookHelper/UserDetailViewController.m"; sourceTree = "<group>"; };
-		340C36C2170969790003AFD2 /* UserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UserDetailViewController.xib; path = "../../MattFacebookHelper'/MattFacebookHelper/MattFacebookHelper/UserDetailViewController.xib"; sourceTree = "<group>"; };
+		340C36C51709C0B00003AFD2 /* UserDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserDetailViewController.h; sourceTree = "<group>"; };
+		340C36C61709C0B00003AFD2 /* UserDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserDetailViewController.m; sourceTree = "<group>"; };
+		340C36C71709C0B00003AFD2 /* UserDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserDetailViewController.xib; sourceTree = "<group>"; };
 		34952CE11703E2FF0010759A /* MattFBHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MattFBHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34952CE41703E2FF0010759A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		34952CE61703E2FF0010759A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -129,9 +129,9 @@
 		34952CEA1703E2FF0010759A /* MattFacebookHelper */ = {
 			isa = PBXGroup;
 			children = (
-				340C36C0170969790003AFD2 /* UserDetailViewController.h */,
-				340C36C1170969790003AFD2 /* UserDetailViewController.m */,
-				340C36C2170969790003AFD2 /* UserDetailViewController.xib */,
+				340C36C51709C0B00003AFD2 /* UserDetailViewController.h */,
+				340C36C61709C0B00003AFD2 /* UserDetailViewController.m */,
+				340C36C71709C0B00003AFD2 /* UserDetailViewController.xib */,
 				340C36AD1706ABB70003AFD2 /* MattFbUserManager.h */,
 				340C36AE1706ABB70003AFD2 /* MattFbUserManager.m */,
 				34952CF31703E2FF0010759A /* AppDelegate.h */,
@@ -233,7 +233,7 @@
 				34952D151703E2FF0010759A /* SecondViewController_iPad.xib in Resources */,
 				34952D1E1703E49F0010759A /* FacebookSDKResources.bundle in Resources */,
 				340C36B517087F960003AFD2 /* UserTableCell.xib in Resources */,
-				340C36C4170969790003AFD2 /* UserDetailViewController.xib in Resources */,
+				340C36C91709C0B00003AFD2 /* UserDetailViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,7 +249,7 @@
 				34952CFE1703E2FF0010759A /* FirstViewController.m in Sources */,
 				34952D051703E2FF0010759A /* SecondViewController.m in Sources */,
 				340C36AF1706ABB70003AFD2 /* MattFbUserManager.m in Sources */,
-				340C36C3170969790003AFD2 /* UserDetailViewController.m in Sources */,
+				340C36C81709C0B00003AFD2 /* UserDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
